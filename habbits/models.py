@@ -1,5 +1,5 @@
 from django.db import models
-from rest_framework.authtoken.admin import User
+from users.models import User
 
 
 class Habit(models.Model):
