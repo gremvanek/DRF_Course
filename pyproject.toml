@@ -12,6 +12,8 @@ pillow = "^10.3.0"
 config = "^0.5.1"
 loadenv = "^0.1.1"
 psycopg2 = "^2.9.9"
+djangorestframework = "^3.15.1"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
