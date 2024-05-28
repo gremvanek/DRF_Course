@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "drf-course"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+pillow = "^10.3.0"
+config = "^0.5.1"
+loadenv = "^0.1.1"
+psycopg2 = "^2.9.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
