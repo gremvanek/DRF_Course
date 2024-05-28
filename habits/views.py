@@ -1,8 +1,10 @@
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 
 from .models import Habit
 from .paginators import CustomPagination
+from .permissions import IsOwnerOrReadOnly, ReadOnlyUnlessPublic
 from .serializers import HabitSerializer
 
 
@@ -10,6 +12,7 @@ class HabitListAPIView(generics.ListAPIView):
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     pagination_class = CustomPagination
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get_paginated_response(self, data):
         return Response(data)  # Переопределяем этот метод для отключения пагинации DRF
@@ -25,3 +28,14 @@ class HabitListAPIView(generics.ListAPIView):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class HabitDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = HabitSerializer
+    permission_classes = [IsOwnerOrReadOnly | ReadOnlyUnlessPublic]  # Добавляем кастомные права доступа
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Habit.objects.filter(user=self.request.user)
+        else:
+            return Habit.objects.filter(public=True)
