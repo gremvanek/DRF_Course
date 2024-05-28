@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.SET_NULL,
-                        to="habbits.habit",
+                        to="habits.habit",
                     ),
                 ),
             ],

@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "drf_spectacular_sidecar",
     # Пользовательские приложения
-    "habbits",
+    "habits",
     "users",
 ]
 
