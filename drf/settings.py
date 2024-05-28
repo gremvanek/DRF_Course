@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     "habits",
     "users",
     # Настройки для безопасности
-    "corsheaders"
+    "corsheaders",
 ]
 
 MIDDLEWARE = [

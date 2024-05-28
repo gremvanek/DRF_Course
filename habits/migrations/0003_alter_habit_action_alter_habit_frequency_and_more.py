@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
             field=models.BooleanField(
                 default=False,
                 verbose_name="привычки можно публиковать в общий доступ, "
-                             "чтобы другие пользователи могли брать в пример чужие привычки.",
+                "чтобы другие пользователи могли брать в пример чужие привычки.",
             ),
         ),
         migrations.AlterField(
@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
                 on_delete=django.db.models.deletion.SET_NULL,
                 to="habits.habit",
                 verbose_name="привычка, которая связана с другой привычкой, "
-                             "важно указывать для полезных привычек, но не для приятных",
+                "важно указывать для полезных привычек, но не для приятных",
             ),
         ),
         migrations.AlterField(

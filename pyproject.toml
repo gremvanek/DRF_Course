@@ -24,6 +24,8 @@ django-redis = "^5.4.0"
 flake8 = "^7.0.0"
 black = "^24.4.2"
 django-cors-headers = "^4.3.1"
+stripe = "^9.8.0"
+celery = "^5.4.0"
 
 
 [build-system]

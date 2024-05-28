@@ -32,7 +32,9 @@ class HabitListAPIView(generics.ListAPIView):
 
 class HabitDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = HabitSerializer
-    permission_classes = [IsOwnerOrReadOnly | ReadOnlyUnlessPublic]  # Добавляем кастомные права доступа
+    permission_classes = [
+        IsOwnerOrReadOnly | ReadOnlyUnlessPublic
+    ]  # Добавляем кастомные права доступа
 
     def get_queryset(self):
         if self.request.user.is_authenticated:
