@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from users.models import User
 from users.serializers import UserSerializer
@@ -11,7 +11,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action == "create":
-            self.permission_classes = [
-                AllowAny,
-            ]
-        return super().get_permissions()
+            # Разрешаем создание пользователя без аутентификации
+            return []
+        # Для остальных действий требуем аутентификацию
+        return [IsAuthenticated()]

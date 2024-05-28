@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     # Пользовательские приложения
     "habits",
     "users",
+    # Настройки для безопасности
+    "corsheaders"
 ]
 
 MIDDLEWARE = [
