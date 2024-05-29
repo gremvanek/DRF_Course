@@ -222,7 +222,7 @@ CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
 # Настройки для Celery
 CELERY_BEAT_SCHEDULE = {
     "task-name": {
-        "task": "courses.tasks.send_mail_about_updates",
+        "task": "drf.telegram_bot.send_telegram_message",
         "schedule": timedelta(minutes=1),
     },
 }
